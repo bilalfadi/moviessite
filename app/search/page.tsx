@@ -203,7 +203,7 @@ export default function SearchResultsPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Search Movies - Find Your Favorite Films" />
         <meta name="twitter:description" content="Search and find your favorite movies online. Browse through thousands of free HD movies by title, genre, or year." />
-        <link rel="canonical" href="https://ww1.n123movie.me/search" />
+        <link rel="canonical" href="https://n123movie.me/search" />
       </Head>
       <Suspense fallback={
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">

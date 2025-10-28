@@ -17,8 +17,8 @@ export interface SEOConfig {
 }
 
 export function generateMovieSEO(movie: Movie, baseUrl?: string): SEOConfig {
-  // Use ww1.n123movie.me domain for canonical URL
-  const currentBaseUrl = 'https://ww1.n123movie.me';
+  // Use n123movie.me domain for canonical URL
+  const currentBaseUrl = 'https://n123movie.me';
   // Generate URL that matches the actual page URL format
   const titleSlug = movie.title.toLowerCase()
     .replace(/[^a-z0-9\s]/g, '') // Remove special characters
@@ -116,7 +116,7 @@ export function generateMovieMetadata(seoConfig: SEOConfig): Metadata {
       },
     },
     alternates: {
-      canonical: seoConfig.url || 'https://ww1.n123movie.me',
+      canonical: seoConfig.url || 'https://n123movie.me',
     },
     // Ensure no external canonical URLs
     other: {
@@ -169,7 +169,7 @@ export function generateGenrePageSEO(genreName: string, baseUrl?: string): SEOCo
     title: `${genreName} Movies | Watch ${genreName} Movies Online Free | 123Movies`,
     description: `Watch the best ${genreName.toLowerCase()} movies online for free. Discover top-rated ${genreName.toLowerCase()} films, latest releases, and classic favorites.`,
     keywords: [`${genreName.toLowerCase()} movies`, 'watch movies online', 'free movies', 'movie streaming', `${genreName.toLowerCase()} films`],
-    url: baseUrl || 'https://ww1.n123movie.me',
+    url: baseUrl || 'https://n123movie.me',
     type: 'website',
   };
 }
@@ -179,7 +179,7 @@ export function generateCountryPageSEO(countryName: string, baseUrl?: string): S
     title: `${countryName} Movies | Watch ${countryName} Movies Online Free | 123Movies`,
     description: `Watch the best ${countryName} movies online for free. Discover top-rated films from ${countryName}, latest releases, and classic favorites.`,
     keywords: [`${countryName} movies`, 'watch movies online', 'free movies', 'movie streaming', `${countryName} films`],
-    url: baseUrl || 'https://ww1.n123movie.me',
+    url: baseUrl || 'https://n123movie.me',
     type: 'website',
   };
 }
@@ -189,7 +189,7 @@ export function generateMoviesPageSEO(baseUrl?: string): SEOConfig {
     title: 'All Movies | Watch Movies Online Free | 123Movies',
     description: 'Browse thousands of movies online for free. Watch latest releases, classic films, and discover your favorite movies. No registration required.',
     keywords: ['all movies', 'watch movies online', 'free movies', 'movie streaming', 'browse movies', 'movie collection'],
-    url: baseUrl || 'https://ww1.n123movie.me',
+    url: baseUrl || 'https://n123movie.me',
     type: 'website',
   };
 }

@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: YearLayoutProps): Promise<Met
   
   return {
     alternates: {
-      canonical: `https://ww1.n123movie.me/year/${slug}`,
+      canonical: `https://n123movie.me/year/${slug}`,
     },
   };
 }

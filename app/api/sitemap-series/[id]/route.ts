@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import clientPromise from '@/lib/mongodb-client';
 
-const DOMAIN = 'https://ww1.n123movie.me';
+const DOMAIN = 'https://n123movie.me';
 const SERIES_PER_SITEMAP = 1000; // 1k per sitemap batch
 
 // Helper function to create series slug

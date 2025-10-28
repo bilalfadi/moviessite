@@ -8,7 +8,7 @@
 ---
 
 ## Sitemap Index XML
-**URL:** `https://ww1.n123movie.me/api/sitemap-index.xml`
+**URL:** `https://n123movie.me/api/sitemap-index.xml`
 
 ### Structure:
 ```xml
@@ -17,43 +17,43 @@
   
   <!-- Static Pages -->
   <sitemap>
-    <loc>https://ww1.n123movie.me/api/sitemap-pages</loc>
+    <loc>https://n123movie.me/api/sitemap-pages</loc>
     <lastmod>2025-10-11T...</lastmod>
   </sitemap>
   
   <sitemap>
-    <loc>https://ww1.n123movie.me/api/sitemap-years</loc>
+    <loc>https://n123movie.me/api/sitemap-years</loc>
     <lastmod>2025-10-11T...</lastmod>
   </sitemap>
   
   <sitemap>
-    <loc>https://ww1.n123movie.me/api/sitemap-genres</loc>
+    <loc>https://n123movie.me/api/sitemap-genres</loc>
     <lastmod>2025-10-11T...</lastmod>
   </sitemap>
   
   <sitemap>
-    <loc>https://ww1.n123movie.me/api/sitemap-countries</loc>
+    <loc>https://n123movie.me/api/sitemap-countries</loc>
     <lastmod>2025-10-11T...</lastmod>
   </sitemap>
   
   <!-- Movies (96 sitemaps - 1k each) -->
   <sitemap>
-    <loc>https://ww1.n123movie.me/api/sitemap-movies/1</loc>
+    <loc>https://n123movie.me/api/sitemap-movies/1</loc>
     <lastmod>2025-10-11T...</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://ww1.n123movie.me/api/sitemap-movies/2</loc>
+    <loc>https://n123movie.me/api/sitemap-movies/2</loc>
     <lastmod>2025-10-11T...</lastmod>
   </sitemap>
   ... (up to 96)
   
   <!-- Series (18 sitemaps - 1k each) -->
   <sitemap>
-    <loc>https://ww1.n123movie.me/api/sitemap-series/1</loc>
+    <loc>https://n123movie.me/api/sitemap-series/1</loc>
     <lastmod>2025-10-11T...</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://ww1.n123movie.me/api/sitemap-series/2</loc>
+    <loc>https://n123movie.me/api/sitemap-series/2</loc>
     <lastmod>2025-10-11T...</lastmod>
   </sitemap>
   ... (up to 18)
@@ -64,7 +64,7 @@
 ---
 
 ## Movie Sitemap Example
-**URL:** `https://ww1.n123movie.me/api/sitemap-movies/1`
+**URL:** `https://n123movie.me/api/sitemap-movies/1`
 
 ### Structure:
 ```xml
@@ -72,14 +72,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://ww1.n123movie.me/the-godfather-tt0068646</loc>
+    <loc>https://n123movie.me/the-godfather-tt0068646</loc>
     <lastmod>2025-10-11T...</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://ww1.n123movie.me/the-shawshank-redemption-tt0111161</loc>
+    <loc>https://n123movie.me/the-shawshank-redemption-tt0111161</loc>
     <lastmod>2025-10-11T...</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -97,7 +97,7 @@
 ---
 
 ## Series Sitemap Example
-**URL:** `https://ww1.n123movie.me/api/sitemap-series/1`
+**URL:** `https://n123movie.me/api/sitemap-series/1`
 
 ### Structure:
 ```xml
@@ -105,14 +105,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://ww1.n123movie.me/breaking-bad-1396</loc>
+    <loc>https://n123movie.me/breaking-bad-1396</loc>
     <lastmod>2025-10-11T...</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://ww1.n123movie.me/game-of-thrones-1399</loc>
+    <loc>https://n123movie.me/game-of-thrones-1399</loc>
     <lastmod>2025-10-11T...</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -169,7 +169,7 @@
 - http://localhost:3000/api/sitemap-series/1
 
 ## Production URLs:
-- https://ww1.n123movie.me/api/sitemap-index.xml
-- https://ww1.n123movie.me/api/sitemap-movies/1
-- https://ww1.n123movie.me/api/sitemap-series/1
+- https://n123movie.me/api/sitemap-index.xml
+- https://n123movie.me/api/sitemap-movies/1
+- https://n123movie.me/api/sitemap-series/1
 

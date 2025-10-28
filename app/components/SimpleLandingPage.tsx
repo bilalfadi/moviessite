@@ -55,7 +55,7 @@ export default function SimpleLandingPage() {
         <meta property="og:title" content="123Movies - Watch HD Movies Online Free" />
         <meta property="og:description" content="Watch HD movies online for free on 123Movies. Stream thousands of movies and TV shows without registration." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ww1.n123movie.me" />
+        <meta property="og:url" content="https://n123movie.me" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="123Movies - Watch HD Movies Online Free" />
         <meta name="twitter:description" content="Watch HD movies online for free on 123Movies. Stream thousands of movies and TV shows without registration." />
@@ -63,7 +63,7 @@ export default function SimpleLandingPage() {
         {/* Additional SEO Meta Tags */}
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://ww1.n123movie.me" />
+        <link rel="canonical" href="https://n123movie.me" />
       </Head>
       
       <StructuredData type="website" />

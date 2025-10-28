@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://ww1.n123movie.me';
+  const baseUrl = 'https://n123movie.me';
   
   return {
     rules: [

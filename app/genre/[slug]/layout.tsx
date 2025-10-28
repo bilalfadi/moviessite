@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: GenreLayoutProps) {
   return {
     ...generateMovieMetadata(seoConfig),
     alternates: {
-      canonical: `https://ww1.n123movie.me/genre/${slug}`,
+      canonical: `https://n123movie.me/genre/${slug}`,
     },
   };
 }

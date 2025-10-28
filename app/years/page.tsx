@@ -73,7 +73,7 @@ export default function YearsPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Movies by Year - Browse Films by Release Year" />
         <meta name="twitter:description" content="Browse movies by release year from 1900s to present. Watch classic films, recent releases, and movies from your favorite decades." />
-        <link rel="canonical" href="https://ww1.n123movie.me/years" />
+        <link rel="canonical" href="https://n123movie.me/years" />
       </Head>
       <div className="min-h-screen bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

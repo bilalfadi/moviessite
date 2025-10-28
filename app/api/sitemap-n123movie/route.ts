@@ -3,12 +3,12 @@ import { getRandomMovieIds } from '@/utils/movieIds';
 import { getMoviesByImdbIds } from '@/api/tmdb';
 import { generateMovieUrl } from "@/lib/slug";
 
-// Dedicated sitemap for ww1.n123movie.me domain
-const DOMAIN = 'https://ww1.n123movie.me';
+// Dedicated sitemap for n123movie.me domain
+const DOMAIN = 'https://n123movie.me';
 
 export async function GET() {
   try {
-    // Static pages for ww1.n123movie.me
+    // Static pages for n123movie.me
     const staticPages = [
       {
         url: DOMAIN,
@@ -83,7 +83,7 @@ ${allPages.map(page => `  <url>
     });
 
   } catch (error) {
-    console.error('Error generating sitemap for ww1.n123movie.me:', error);
+    console.error('Error generating sitemap for n123movie.me:', error);
     
     // Return basic sitemap if there's an error
     const basicXml = `<?xml version="1.0" encoding="UTF-8"?>

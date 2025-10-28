@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: TVYearLayoutProps): Promise<M
   
   return {
     alternates: {
-      canonical: `https://ww1.n123movie.me/tv-year/${slug}`,
+      canonical: `https://n123movie.me/tv-year/${slug}`,
     },
   };
 }

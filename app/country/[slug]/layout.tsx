@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: CountryLayoutProps) {
   return {
     ...generateMovieMetadata(seoConfig),
     alternates: {
-      canonical: `https://ww1.n123movie.me/country/${slug}`,
+      canonical: `https://n123movie.me/country/${slug}`,
     },
   };
 }
