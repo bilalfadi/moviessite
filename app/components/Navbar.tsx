@@ -2,11 +2,21 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import SearchModal from "./SearchModal";
+import { usePathname, useRouter } from "next/navigation";
+import { searchMoviesByTitle } from "@/api/tmdb";
+import type { MovieListItem } from "@/api/tmdb";
+import { generateMovieUrl } from "@/lib/slug";
+import Image from "next/image";
+import { getYear } from "@/api/tmdb";
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState<MovieListItem[]>([]);
+  const [showSearchResults, setShowSearchResults] = useState(false);
+  const [searchLoading, setSearchLoading] = useState(false);
   const [years, setYears] = useState<number[]>([]);
   const [decades, setDecades] = useState<Array<{decade: string, years: number[]}>>([]);
   const [progress, setProgress] = useState({processedMovies: 0, totalMovies: 95942, foundMovies: 0});
@@ -14,6 +24,202 @@ export default function Navbar() {
   const [yearsLoaded, setYearsLoaded] = useState(false); // Track if years have been loaded
 
   // Fetch years data from API - ONLY when user hovers over dropdown
+  // Get site name, tagline and styles based on pathname
+  const getSiteInfo = () => {
+    const keywordPages: { [key: string]: { 
+      name: string; 
+      tagline: string; 
+      logo: { first: string; second: string };
+      firstStyle: React.CSSProperties;
+      secondStyle: React.CSSProperties;
+      iconBg: string;
+      taglineColor: string;
+    } } = {
+      '/fmovies': { 
+        name: 'FMOVIES', 
+        tagline: 'Stream Movies & Series Free',
+        logo: { first: 'F', second: 'MOVIES' },
+        firstStyle: { 
+          background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          textShadow: '0 0 20px rgba(59, 130, 246, 0.5)'
+        },
+        secondStyle: { color: '#8b5cf6' },
+        iconBg: 'linear-gradient(135deg, #3b82f6, #6366f1)',
+        taglineColor: '#8b5cf6'
+      },
+      '/soap2day': { 
+        name: 'SOAP2DAY', 
+        tagline: 'Watch Movies Online Free',
+        logo: { first: 'SOAP', second: '2DAY' },
+        firstStyle: { 
+          color: '#10b981',
+          fontWeight: '900',
+          textShadow: '2px 2px 0px rgba(5, 150, 105, 0.3)'
+        },
+        secondStyle: { 
+          color: '#14b8a6',
+          fontWeight: '600'
+        },
+        iconBg: 'linear-gradient(135deg, #10b981, #14b8a6)',
+        taglineColor: '#059669'
+      },
+      '/gomovies': { 
+        name: 'GOMOVIES', 
+        tagline: 'Latest Movies & TV Shows',
+        logo: { first: 'GO', second: 'MOVIES' },
+        firstStyle: { 
+          color: '#ef4444',
+          fontWeight: '900',
+          borderBottom: '3px solid #dc2626'
+        },
+        secondStyle: { 
+          color: '#f97316',
+          fontWeight: '700'
+        },
+        iconBg: 'linear-gradient(45deg, #ef4444, #f97316)',
+        taglineColor: '#dc2626'
+      },
+      '/hurawatch': { 
+        name: 'HURAWATCH', 
+        tagline: 'HD Movie Streaming Platform',
+        logo: { first: 'HURA', second: 'WATCH' },
+        firstStyle: { 
+          color: '#06b6d4',
+          fontWeight: '900',
+          border: '2px solid #06b6d4',
+          padding: '0 4px',
+          borderRadius: '4px'
+        },
+        secondStyle: { 
+          color: '#0891b2',
+          fontWeight: '600'
+        },
+        iconBg: 'linear-gradient(135deg, #06b6d4, #0e7490)',
+        taglineColor: '#0891b2'
+      },
+      '/yesmovies': { 
+        name: 'YESMOVIES', 
+        tagline: 'Say Yes to Free Streaming',
+        logo: { first: 'YES', second: 'MOVIES' },
+        firstStyle: { 
+          backgroundColor: '#f59e0b',
+          color: '#000',
+          fontWeight: '900',
+          padding: '2px 8px',
+          borderRadius: '8px',
+          boxShadow: '0 4px 12px rgba(245, 158, 11, 0.5)'
+        },
+        secondStyle: { 
+          color: '#d97706',
+          fontWeight: '700'
+        },
+        iconBg: 'linear-gradient(135deg, #f59e0b, #d97706)',
+        taglineColor: '#b45309'
+      },
+      '/solarmovie': { 
+        name: 'SOLARMOVIE', 
+        tagline: 'Free Movies & TV Series',
+        logo: { first: 'SOLAR', second: 'MOVIE' },
+        firstStyle: { 
+          background: 'linear-gradient(90deg, #f97316, #fb923c, #f97316)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          fontWeight: '900',
+          backgroundSize: '200% auto',
+          animation: 'shine 3s linear infinite'
+        },
+        secondStyle: { 
+          color: '#ea580c',
+          fontWeight: '600'
+        },
+        iconBg: 'linear-gradient(135deg, #f97316, #ea580c)',
+        taglineColor: '#ea580c'
+      },
+      '/popcornflix': { 
+        name: 'POPCORNFLIX', 
+        tagline: 'Stream Free Entertainment',
+        logo: { first: 'POPCORN', second: 'FLIX' },
+        firstStyle: { 
+          background: 'linear-gradient(to right, #dc2626, #fbbf24)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          fontWeight: '900'
+        },
+        secondStyle: { 
+          color: '#b91c1c',
+          fontWeight: '700',
+          fontStyle: 'italic'
+        },
+        iconBg: 'linear-gradient(135deg, #dc2626, #fbbf24)',
+        taglineColor: '#dc2626'
+      },
+      '/lookmovie': { 
+        name: 'LOOKMOVIE', 
+        tagline: 'Instant HD Streaming',
+        logo: { first: 'LOOK', second: 'MOVIE' },
+        firstStyle: { 
+          color: '#a855f7',
+          fontWeight: '900',
+          textDecoration: 'underline',
+          textDecorationColor: '#9333ea',
+          textDecorationThickness: '3px',
+          textUnderlineOffset: '4px'
+        },
+        secondStyle: { 
+          color: '#c084fc',
+          fontWeight: '600'
+        },
+        iconBg: 'linear-gradient(135deg, #a855f7, #9333ea)',
+        taglineColor: '#9333ea'
+      }
+    };
+    return keywordPages[pathname] || { 
+      name: '123MOVIES', 
+      tagline: 'Watch Your Favorite Movies Online',
+      logo: { first: '123', second: 'MOVIES' },
+      firstStyle: { color: '#1f2937', fontWeight: '800' },
+      secondStyle: { color: '#6b7280', fontWeight: '500' },
+      iconBg: '#10b981',
+      taglineColor: '#9ca3af'
+    };
+  };
+
+  const siteInfo = getSiteInfo();
+  const displayName = siteInfo.logo;
+
+  const handleSearch = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!searchTerm.trim()) return;
+
+    setSearchLoading(true);
+    setShowSearchResults(true);
+    
+    try {
+      const results = await searchMoviesByTitle(searchTerm.trim(), 20);
+      if (Array.isArray(results)) {
+        const moviesData = results
+          .filter(movie => movie.imdb_id && movie.imdb_id.trim() !== '')
+          .map(movie => ({
+            ...movie,
+            imdb_id: movie.imdb_id!,
+          }));
+        setSearchResults(moviesData);
+      }
+    } catch (error) {
+      console.error('Search error:', error);
+      setSearchResults([]);
+    }
+    setSearchLoading(false);
+  };
+
+  const handleMovieClick = (movie: MovieListItem) => {
+    setShowSearchResults(false);
+    setSearchTerm("");
+    router.push(generateMovieUrl(movie.title, movie.imdb_id || ''));
+  };
+
   const fetchYears = async () => {
     if (yearsLoaded) return; // Don't fetch if already loaded
     
@@ -73,21 +279,48 @@ export default function Navbar() {
 
   return (
     <nav className="bg-black/50 backdrop-blur-sm border-b border-gray-700 sticky top-0 z-30">
+      <style jsx>{`
+        @keyframes shine {
+          to {
+            background-position: 200% center;
+          }
+        }
+      `}</style>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo - Left */}
           <div className="flex items-center">
             <Link href="/" className="flex flex-col">
               <div className="flex items-center">
-                <span className="text-2xl md:text-3xl font-bold text-gray-800">123</span>
-                <span className="text-lg md:text-2xl font-normal text-gray-500 ml-1">MOVIES</span>
-                <div className="w-5 h-5 md:w-6 md:h-6 bg-green-600 rounded ml-2 flex items-center justify-center">
+                <span 
+                  className="text-2xl md:text-3xl font-bold"
+                  style={siteInfo.firstStyle}
+                >
+                  {displayName.first}
+                </span>
+                {displayName.second && (
+                  <span 
+                    className="text-lg md:text-2xl ml-1"
+                    style={siteInfo.secondStyle}
+                  >
+                    {displayName.second}
+                  </span>
+                )}
+                <div 
+                  className="w-5 h-5 md:w-6 md:h-6 rounded ml-2 flex items-center justify-center transition-transform hover:scale-110"
+                  style={{ background: siteInfo.iconBg }}
+                >
                   <svg className="w-3 h-3 md:w-4 md:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
                 </div>
               </div>
-              <p className="text-gray-400 text-xs ml-1 hidden sm:block">Watch Your Favorite Movies Online</p>
+              <p 
+                className="text-xs ml-1 hidden sm:block font-medium"
+                style={{ color: siteInfo.taglineColor }}
+              >
+                {siteInfo.tagline}
+              </p>
             </Link>
           </div>
           
@@ -297,20 +530,33 @@ export default function Navbar() {
 
           </div>
 
-          {/* Search Bar - Right (Hidden on mobile) */}
-          <div className="hidden md:flex items-center space-x-3">
-            <div className="relative">
+          {/* Search Bar - Right */}
+          <div className="hidden md:flex items-center">
+            <form onSubmit={handleSearch} className="relative">
               <input
                 type="text"
-                placeholder="Search movies or series"
-                className="bg-gray-800 text-white px-4 py-2 pl-10 pr-4 rounded-lg border border-gray-700 focus:outline-none focus:border-green-500 w-64 cursor-pointer"
-                onClick={() => setIsSearchOpen(true)}
-                readOnly
+                placeholder="Search movies..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onFocus={() => setShowSearchResults(true)}
+                className="bg-gray-800 text-white px-4 py-2 pl-10 rounded-lg border border-gray-700 focus:outline-none focus:border-green-500 w-64"
               />
               <svg className="absolute left-3 top-2.5 w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-            </div>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              {searchTerm && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSearchTerm("");
+                    setShowSearchResults(false);
+                  }}
+                  className="absolute right-3 top-2.5 text-gray-400 hover:text-white"
+                >
+                  ✕
+                </button>
+              )}
+            </form>
           </div>
 
           {/* Mobile menu button - Right */}
@@ -367,27 +613,75 @@ export default function Navbar() {
               Years
             </Link>
             <div className="pt-4 pb-3 border-t border-gray-700">
-              <div className="px-3 py-2">
-                <button
-                  onClick={() => {
-                    setIsSearchOpen(true);
-                    setIsMenuOpen(false);
-                  }}
-                  className="w-full bg-gray-800 text-gray-400 rounded-lg px-3 py-2 text-left hover:bg-gray-700 transition-all cursor-pointer"
-                >
-                  Search movies or series...
-                </button>
-              </div>
             </div>
           </div>
         </div>
       )}
+
+      {/* Search Results Dropdown */}
+      {showSearchResults && searchTerm && (
+        <>
+          <div 
+            className="fixed inset-0 z-40" 
+            onClick={() => setShowSearchResults(false)}
+          />
+          <div className="absolute top-full right-0 mt-2 w-[600px] max-h-[80vh] overflow-y-auto bg-gray-900 rounded-lg shadow-2xl border border-gray-700 z-50 mr-4">
+            <div className="p-4 border-b border-gray-700 flex items-center justify-between">
+              <h3 className="text-white font-bold">
+                {searchLoading ? "Searching..." : `Results for "${searchTerm}"`}
+              </h3>
+              <button
+                onClick={() => {
+                  setShowSearchResults(false);
+                  setSearchTerm("");
+                }}
+                className="text-gray-400 hover:text-white"
+              >
+                ✕
+              </button>
+            </div>
+            
+            {searchLoading ? (
+              <div className="p-12 text-center">
+                <div className="w-12 h-12 border-4 border-green-500 border-t-transparent rounded-full animate-spin mx-auto" />
+                <p className="text-gray-400 mt-4">Loading...</p>
+              </div>
+            ) : searchResults.length > 0 ? (
+              <div className="p-4 space-y-3 max-h-[500px] overflow-y-auto">
+                {searchResults.map((movie, index) => (
+                  <div
+                    key={`${movie.imdb_id}-${index}`}
+                    onClick={() => handleMovieClick(movie)}
+                    className="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-800 cursor-pointer transition-colors"
+                  >
+                    <div className="relative w-16 h-24 flex-shrink-0 rounded overflow-hidden bg-gray-800">
+                      <Image
+                        src={movie.poster_path ? `https://image.tmdb.org/t/p/w200${movie.poster_path}` : '/placeholder.svg'}
+                        alt={movie.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-white font-semibold text-sm line-clamp-2 mb-1">
+                        {movie.title}
+                      </h4>
+                      <p className="text-gray-400 text-xs">
+                        {getYear(movie.release_date)} • ⭐ {movie.vote_average?.toFixed(1) || 'N/A'}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="p-12 text-center">
+                <p className="text-gray-400">No results found</p>
+              </div>
+            )}
+          </div>
+        </>
+      )}
       
-      {/* Search Modal */}
-      <SearchModal 
-        isOpen={isSearchOpen} 
-        onClose={() => setIsSearchOpen(false)} 
-      />
     </nav>
   );
 }
