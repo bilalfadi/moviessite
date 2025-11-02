@@ -107,7 +107,7 @@ export default function LandingVariant10({ keyword, description, colorTheme, con
             <div className="h-px w-32" style={{ background: `linear-gradient(to left, transparent, ${colorTheme.primary})` }} />
           </div>
 
-          <h1 className="text-8xl md:text-9xl font-serif font-black mb-8 shimmer-text leading-none">
+          <h1 className="text-5xl sm:text-7xl md:text-9xl font-serif font-black mb-8 shimmer-text leading-none">
             {keyword}
           </h1>
 
@@ -176,7 +176,7 @@ export default function LandingVariant10({ keyword, description, colorTheme, con
               <p className="text-gray-400">Loading exclusive content...</p>
             </div>
           ) : searchResults.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-8">
               {searchResults.map((movie, index) => (
                 <div
                   key={`${movie.imdb_id}-${index}`}

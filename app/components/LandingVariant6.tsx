@@ -139,7 +139,7 @@ export default function LandingVariant6({ keyword, description, colorTheme, cont
             </div>
           </div>
 
-          <h1 className="text-8xl md:text-9xl font-black mb-6 tracking-tight" style={{
+          <h1 className="text-5xl sm:text-7xl md:text-9xl font-black mb-6 tracking-tight" style={{
             background: `linear-gradient(135deg, ${colorTheme.primary}, ${colorTheme.accent})`,
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent'

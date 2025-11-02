@@ -182,7 +182,7 @@ export default function LandingVariant7({ keyword, description, colorTheme, cont
                 <div className="text-6xl animate-blink" style={{ color: colorTheme.primary }}>●</div>
               </div>
             ) : searchResults.length > 0 ? (
-              <div className="grid grid-cols-3 md:grid-cols-6 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 md:gap-6">
                 {searchResults.map((movie, index) => (
                   <div
                     key={`${movie.imdb_id}-${index}`}

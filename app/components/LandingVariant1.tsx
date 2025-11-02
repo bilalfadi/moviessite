@@ -144,7 +144,7 @@ export default function LandingVariant1({ keyword, description, colorTheme, cont
         <div className="relative z-10 text-center max-w-5xl mx-auto">
           <div className="animate-slideInLeft">
             <h1 
-              className="text-8xl md:text-9xl font-black mb-8 tracking-tighter animate-glow"
+              className="text-5xl sm:text-7xl md:text-9xl font-black mb-8 tracking-tighter animate-glow"
               style={{ 
                 color: colorTheme.primary,
                 textShadow: `0 0 30px ${colorTheme.primary}, 0 0 60px ${colorTheme.primary}50`
@@ -154,7 +154,7 @@ export default function LandingVariant1({ keyword, description, colorTheme, cont
             </h1>
           </div>
           
-          <p className="text-2xl md:text-3xl mb-12 text-gray-100 animate-slideInRight font-normal">
+          <p className="text-lg sm:text-xl md:text-3xl mb-12 text-gray-100 animate-slideInRight font-normal">
             {description}
           </p>
 
@@ -224,7 +224,7 @@ export default function LandingVariant1({ keyword, description, colorTheme, cont
               />
             </div>
           ) : searchResults.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 md:gap-6">
               {searchResults.map((movie, index) => (
                 <div
                   key={`${movie.imdb_id}-${index}`}

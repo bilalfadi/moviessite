@@ -122,7 +122,7 @@ export default function LandingVariant3({ keyword, description, colorTheme, cont
               </h1>
             </div>
             
-            <p className="text-3xl text-white/90 mb-12 animate-slideInBottom font-light">
+            <p className="text-lg sm:text-2xl md:text-3xl text-white/90 mb-12 animate-slideInBottom font-light">
               {description}
             </p>
 
@@ -195,7 +195,7 @@ export default function LandingVariant3({ keyword, description, colorTheme, cont
                 </div>
               </div>
             ) : searchResults.length > 0 ? (
-              <div className="grid grid-cols-2 md:grid-cols-6 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 md:gap-6">
                 {searchResults.map((movie, index) => (
                   <div
                     key={`${movie.imdb_id}-${index}`}

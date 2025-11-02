@@ -119,7 +119,7 @@ export default function LandingVariant5({ keyword, description, colorTheme, cont
       <div className="relative min-h-screen flex items-center justify-center px-6 py-20">
         <div className="max-w-5xl mx-auto text-center">
           <div className="backdrop-blur-3xl bg-white/30 rounded-3xl p-12 border border-white/40 shadow-2xl animate-glassFloat">
-            <h1 className="text-7xl md:text-8xl font-black mb-6" style={{ color: colorTheme.accent }}>
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-black mb-6" style={{ color: colorTheme.accent }}>
               {keyword}
             </h1>
             <p className="text-2xl text-gray-900 mb-12 font-semibold">
@@ -179,7 +179,7 @@ export default function LandingVariant5({ keyword, description, colorTheme, cont
                 />
               </div>
             ) : searchResults.length > 0 ? (
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6">
                 {searchResults.map((movie, index) => (
                   <div
                     key={`${movie.imdb_id}-${index}`}

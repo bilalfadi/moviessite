@@ -147,7 +147,7 @@ export default function LandingVariant9({ keyword, description, colorTheme, cont
               <p className="mb-2" style={{ color: colorTheme.primary }}>
                 $ echo "Welcome to {keyword}"
               </p>
-              <h1 className="text-6xl font-black mb-4 terminal-cursor" style={{ color: colorTheme.accent }}>
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-black mb-4 terminal-cursor" style={{ color: colorTheme.accent }}>
                 {keyword}
               </h1>
               <p className="text-lg mb-4 opacity-80">
@@ -242,7 +242,7 @@ export default function LandingVariant9({ keyword, description, colorTheme, cont
                   </p>
                 </div>
               ) : searchResults.length > 0 ? (
-                <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 md:gap-6">
                   {searchResults.map((movie, index) => (
                     <div
                       key={`${movie.imdb_id}-${index}`}

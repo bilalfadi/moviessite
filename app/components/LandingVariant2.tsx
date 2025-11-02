@@ -209,7 +209,7 @@ export default function LandingVariant2({ keyword, description, colorTheme, cont
                 </div>
               </div>
             ) : searchResults.length > 0 ? (
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6">
                 {searchResults.map((movie, index) => (
                   <div
                     key={`${movie.imdb_id}-${index}`}
