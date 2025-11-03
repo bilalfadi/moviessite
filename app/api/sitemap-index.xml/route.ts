@@ -50,6 +50,10 @@ export async function GET() {
     <loc>${DOMAIN}/api/sitemap-countries</loc>
     <lastmod>${lastmod}</lastmod>
   </sitemap>
+  <sitemap>
+    <loc>${DOMAIN}/api/sitemap-landingpages</loc>
+    <lastmod>${lastmod}</lastmod>
+  </sitemap>
 ${Array.from({ length: numberOfMovieSitemaps }, (_, i) => `  <sitemap>
     <loc>${DOMAIN}/api/sitemap-movies/${i + 1}</loc>
     <lastmod>${lastmod}</lastmod>
