@@ -6,8 +6,9 @@ export async function GET() {
   try {
     const lastmod = new Date().toISOString();
     
-    // Landing variant pages (8 pages)
+    // Main page + Landing variant pages (9 pages total)
     const pages = [
+      { url: DOMAIN, priority: '1.0', changefreq: 'daily' },
       { url: `${DOMAIN}/fmovies`, priority: '0.8', changefreq: 'weekly' },
       { url: `${DOMAIN}/gomovies`, priority: '0.8', changefreq: 'weekly' },
       { url: `${DOMAIN}/hurawatch`, priority: '0.8', changefreq: 'weekly' },
