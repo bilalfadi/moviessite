@@ -3,8 +3,8 @@ import { getRandomMovieIds } from '@/utils/movieIds';
 import { getMoviesByImdbIds } from '@/api/tmdb';
 import { generateMovieUrl } from "@/lib/slug";
 
-// Dedicated sitemap for n123movie.me domain
-const DOMAIN = 'https://n123movie.me';
+// Dedicated sitemap for ww1.n123movie.me domain
+const DOMAIN = 'https://ww1.n123movie.me';
 
 export async function GET() {
   try {

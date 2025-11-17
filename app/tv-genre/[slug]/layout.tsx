@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: TVGenreLayoutProps): Promise<
   
   return {
     alternates: {
-      canonical: `https://n123movie.me/tv-genre/${slug}`,
+      canonical: `https://ww1.n123movie.me/tv-genre/${slug}`,
     },
   };
 }

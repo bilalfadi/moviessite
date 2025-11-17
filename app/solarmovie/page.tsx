@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description: "Solarmovie brings you unlimited streaming of movies and TV series. High-quality playback with no subscription fees. Your entertainment hub.",
   keywords: "solarmovie, free movies, online streaming, TV shows free, HD streaming, watch series",
   alternates: {
-    canonical: 'https://n123movie.me/solarmovie',
+    canonical: 'https://ww1.n123movie.me/solarmovie',
   },
   openGraph: {
     title: "Solarmovie - Watch Free Movies and TV Shows Online",
     description: "Solarmovie brings you unlimited streaming of movies and TV series in HD.",
     type: "website",
-    url: "https://n123movie.me/solarmovie",
+    url: "https://ww1.n123movie.me/solarmovie",
   },
 };
 

@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description: "Gomovies brings you the latest movies and TV series in crystal clear HD. No ads interruptions, no sign-up required. Just pure entertainment.",
   keywords: "gomovies, stream movies free, latest movies, HD series, free tv shows, online cinema",
   alternates: {
-    canonical: 'https://n123movie.me/gomovies',
+    canonical: 'https://ww1.n123movie.me/gomovies',
   },
   openGraph: {
     title: "Gomovies - Stream Latest Movies and Series Free Online",
     description: "Gomovies brings you the latest movies and TV series in crystal clear HD.",
     type: "website",
-    url: "https://n123movie.me/gomovies",
+    url: "https://ww1.n123movie.me/gomovies",
   },
 };
 

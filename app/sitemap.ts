@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
-// Fixed domain for n123movie.me
-const DOMAIN = 'https://n123movie.me';
+// Fixed domain for ww1.n123movie.me
+const DOMAIN = 'https://ww1.n123movie.me';
 
 /**
  * Main sitemap - redirects to sitemap index

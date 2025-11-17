@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { generateMovieUrl } from '@/lib/slug';
 import { getMovieByImdbId } from '@/api/tmdb';
 
-const DOMAIN = 'https://n123movie.me';
+const DOMAIN = 'https://ww1.n123movie.me';
 const MOVIES_PER_SITEMAP = 1000; // 1k per sitemap batch
 
 export async function GET(

@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description: "Popcornflix delivers free streaming of popular movies and series. No subscription required. Enjoy unlimited entertainment in excellent quality anytime.",
   keywords: "popcornflix, free movie platform, stream online, watch movies, TV series free, entertainment hub",
   alternates: {
-    canonical: 'https://n123movie.me/popcornflix',
+    canonical: 'https://ww1.n123movie.me/popcornflix',
   },
   openGraph: {
     title: "Popcornflix - Free Movie Streaming Platform Online",
     description: "Popcornflix delivers free streaming of popular movies and series.",
     type: "website",
-    url: "https://n123movie.me/popcornflix",
+    url: "https://ww1.n123movie.me/popcornflix",
   },
 };
 

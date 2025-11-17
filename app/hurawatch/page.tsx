@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description: "Hurawatch offers premium movie streaming with HD quality. Access thousands of movies and TV shows instantly without any subscription or registration.",
   keywords: "hurawatch, HD movies, 1080p streaming, free movies, watch online, premium streaming",
   alternates: {
-    canonical: 'https://n123movie.me/hurawatch',
+    canonical: 'https://ww1.n123movie.me/hurawatch',
   },
   openGraph: {
     title: "Hurawatch - Watch Movies Online Free in HD 1080p",
     description: "Hurawatch offers premium movie streaming with HD quality.",
     type: "website",
-    url: "https://n123movie.me/hurawatch",
+    url: "https://ww1.n123movie.me/hurawatch",
   },
 };
 

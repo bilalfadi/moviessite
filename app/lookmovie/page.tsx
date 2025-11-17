@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description: "Lookmovie offers instant streaming of movies and TV series in superb quality. Browse thousands of titles and watch immediately without any fees.",
   keywords: "lookmovie, instant streaming, HD movies, watch shows, free platform, online entertainment",
   alternates: {
-    canonical: 'https://n123movie.me/lookmovie',
+    canonical: 'https://ww1.n123movie.me/lookmovie',
   },
   openGraph: {
     title: "Lookmovie - Stream HD Movies and Shows Instantly",
     description: "Lookmovie offers instant streaming of movies and TV series in superb quality.",
     type: "website",
-    url: "https://n123movie.me/lookmovie",
+    url: "https://ww1.n123movie.me/lookmovie",
   },
 };
 

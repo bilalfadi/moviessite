@@ -26,10 +26,10 @@ const nextConfig: NextConfig = {
   // Environment variables
   env: {
     TMDB_API_KEY: process.env.TMDB_API_KEY,
-    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://movies.n123movie.me',
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://ww1.n123movie.me',
   },
-  // Output configuration for Docker
-  output: 'standalone',
+  // Output configuration - removed standalone for Vercel compatibility
+  // output: 'standalone',
   // Disable ESLint during build for production
   eslint: {
     ignoreDuringBuilds: true,

@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     description: 'Watch thousands of movies online for free. Download HD movies, stream latest releases, and discover your favorite films. No registration required.',
   },
   alternates: {
-    canonical: 'https://n123movie.me',
+    canonical: 'https://ww1.n123movie.me',
   },
 };
 

@@ -7,7 +7,7 @@ interface StructuredDataProps {
 }
 
 export default function StructuredData({ movie, series, type }: StructuredDataProps) {
-  const baseUrl = 'https://n123movie.me';
+  const baseUrl = 'https://ww1.n123movie.me';
 
   const generateMovieStructuredData = (movie: Movie) => {
     return {

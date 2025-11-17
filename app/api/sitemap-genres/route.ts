@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const DOMAIN = 'https://n123movie.me';
+const DOMAIN = 'https://ww1.n123movie.me';
 
 export async function GET() {
   try {

@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description: "Yesmovies provides free access to movies and TV series. Stream in HD with no buffering, no registration needed. Your ultimate movie streaming destination.",
   keywords: "yesmovies, free streaming platform, HD movies, online series, movie streaming, watch free",
   alternates: {
-    canonical: 'https://n123movie.me/yesmovies',
+    canonical: 'https://ww1.n123movie.me/yesmovies',
   },
   openGraph: {
     title: "Yesmovies - Free Online Movie Streaming in High Quality",
     description: "Yesmovies provides free access to movies and TV series in HD quality.",
     type: "website",
-    url: "https://n123movie.me/yesmovies",
+    url: "https://ww1.n123movie.me/yesmovies",
   },
 };
 

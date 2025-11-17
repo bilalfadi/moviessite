@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: 'https://n123movie.me',
+    canonical: 'https://ww1.n123movie.me',
   },
 };
 

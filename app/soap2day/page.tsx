@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description: "Soap2Day provides instant access to thousands of movies and shows in stunning HD quality. Stream your favorite content without registration or fees.",
   keywords: "soap2day, free streaming, HD movies, watch online, tv series streaming, no registration",
   alternates: {
-    canonical: 'https://n123movie.me/soap2day',
+    canonical: 'https://ww1.n123movie.me/soap2day',
   },
   openGraph: {
     title: "Soap2Day - Watch Free Movies Online in HD Quality",
     description: "Soap2Day provides instant access to thousands of movies and shows in stunning HD quality.",
     type: "website",
-    url: "https://n123movie.me/soap2day",
+    url: "https://ww1.n123movie.me/soap2day",
   },
 };
 

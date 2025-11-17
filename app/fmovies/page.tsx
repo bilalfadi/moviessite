@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description: "Fmovies offers unlimited streaming of movies and TV series in HD quality. Watch the latest releases and classic films without any subscription fees.",
   keywords: "fmovies, free movies online, stream movies, HD streaming, watch TV shows, online streaming",
   alternates: {
-    canonical: 'https://n123movie.me/fmovies',
+    canonical: 'https://ww1.n123movie.me/fmovies',
   },
   openGraph: {
     title: "Fmovies - Stream Movies and TV Shows Online Free",
     description: "Fmovies offers unlimited streaming of movies and TV series in HD quality.",
     type: "website",
-    url: "https://n123movie.me/fmovies",
+    url: "https://ww1.n123movie.me/fmovies",
   },
 };
 
